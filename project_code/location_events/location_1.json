@@ -1,32 +1,72 @@
-[{
-  "primary_attribute": "Intelligence",
-  "secondary_attribute": "Strength",
-  "prompt_text": "A mysterious door blocks your path, with a riddle inscribed. What will you do?",
-  "pass": {
-    "message": "You solved the riddle and pushed the door open. You may proceed."
-  },
-  "fail": {
-    "message": "You failed to solve the riddle and push the door open. You must find another way."
-  },
-  "partial_pass": {
-    "message": "You managed to solve the riddle or push the door, but not both. You made some progress, but the door remains closed."
-  }
-},
+[
   {
-    "primary_attribute": "Intelligence",
-    "secondary_attribute": "Strength",
-    "prompt_text": "A mysterious door blocks your path, with a riddle inscribed. What will you do?",
+    "primary_attribute": "Agility",
+    "secondary_attribute": "Teamwork",
+    "prompt_text": "A narrow bridge of molten lava stretches before you. How will you cross?",
     "pass": {
-      "message": "You solved the riddle and pushed the door open. You may proceed."
+      "message": "With perfect timing and coordination, you crossed the bridge safely. You can move on!"
     },
     "fail": {
-      "message": "You failed to solve the riddle and push the door open. You must find another way."
+      "message": "You misjudged the jump and fell into the lava. You need to regroup and try again."
     },
     "partial_pass": {
-      "message": "You managed to solve the riddle or push the door, but not both. You made some progress, but the door remains closed."
+      "message": "You made it halfway but slipped! You'll need to regain your balance to continue."
+    }
+  },
+  {
+    "primary_attribute": "Intelligence",
+    "secondary_attribute": "Creativity",
+    "prompt_text": "You enter a chamber filled with glimmering ice crystals that reflect light in every direction. What will you do?",
+    "pass": {
+      "message": "Using your wits, you created a path through the ice, revealing a hidden exit. You may proceed!"
+    },
+    "fail": {
+      "message": "You couldn't find a way through the crystals. You'll need to search for another route."
+    },
+    "partial_pass": {
+      "message": "You managed to clear a few crystals but not enough to escape. You’ll need to keep trying."
+    }
+  },
+  {
+    "primary_attribute": "Intelligence",
+    "secondary_attribute": "Courage",
+    "prompt_text": "A majestic waterfall thunders before you, said to grant wisdom to those who dare approach. What will you do?",
+    "pass": {
+      "message": "You approached bravely and listened to the whispers of the water. You gained valuable insight for your journey."
+    },
+    "fail": {
+      "message": "You were too afraid to approach the waterfall. The wisdom remains out of reach."
+    },
+    "partial_pass": {
+      "message": "You listened from a distance and learned a hint, but the full wisdom eludes you."
+    }
+  },
+  {
+    "primary_attribute": "Strength",
+    "secondary_attribute": "Intelligence",
+    "prompt_text": "A stone guardian blocks your path, demanding a test of strength and smarts. What will you do?",
+    "pass": {
+      "message": "You outsmarted and outmuscled the guardian. You may pass without further hindrance!"
+    },
+    "fail": {
+      "message": "The guardian bested you in both tests. You'll need to find another way around."
+    },
+    "partial_pass": {
+      "message": "You managed to impress the guardian with one test, but not the other. The path remains partially blocked."
+    }
+  },
+  {
+    "primary_attribute": "Intelligence",
+    "secondary_attribute": "Teamwork",
+    "prompt_text": "Before you lies a massive elemental puzzle that requires both fire and water to solve. How will you approach it?",
+    "pass": {
+      "message": "Working together, you aligned the elements perfectly. The puzzle clicks open, and the way ahead is clear!"
+    },
+    "fail": {
+      "message": "You struggled to collaborate and the puzzle remains unsolved. You’ll need to rethink your strategy."
+    },
+    "partial_pass": {
+      "message": "You managed to solve part of the puzzle, but the solution remains incomplete. You’ll have to keep trying together."
     }
   }
-
-
-
 ]

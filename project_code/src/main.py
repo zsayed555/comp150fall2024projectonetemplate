@@ -56,6 +56,11 @@ class Event:
         character = parser.select_party_member(party)
         chosen_stat = parser.select_stat(character)
         self.resolve_choice(character, chosen_stat)
+        if self.status == EventStatus.PASS:
+            self.reward(character)
+
+        elif self.status == EventStatus.FAIL:
+            self.punish(character, party)
 
     def resolve_choice(self, character: Character, chosen_stat: Statistic):
         if chosen_stat.name == self.primary_attribute:
@@ -67,6 +72,17 @@ class Event:
         else:
             self.status = EventStatus.FAIL
             print(self.fail_message)
+
+
+    def punish(self, character: Character, party: List[Character]):
+        # remove the character from the party
+        print(f"{character.name} has been removed from the party.")
+        party.remove(character)
+
+    def reward(self, character):
+        # increase the chosen stat value
+        print(f"{character.name} has been rewarded.")
+        character.strength.modify(10)
 
 
 class Location:
@@ -125,7 +141,10 @@ def load_events_from_json(file_path: str) -> List[Event]:
 
 def start_game():
     parser = UserInputParser()
-    characters = [Character(f"Character_{i}") for i in range(3)]
+    characters_names = ["Fireboy", "Watergirl", "elecroman", "dragonBaby"]
+
+
+    characters = [Character(name) for name in characters_names]
 
     # Load events from the JSON file
     events = load_events_from_json('project_code/location_events/location_1.json')
