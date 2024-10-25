@@ -25,6 +25,14 @@ class Statistic:
 
     def modify(self, amount: int):
         self.value = max(self.min_value, min(self.max_value, self.value + amount))
+    
+    def __init__(self, name, value):
+        self.name = name
+        self.value = value
+
+    def modify(self, amount):
+        self.value += amount
+        print(f"{self.name} has increased by {amount}. New value: {self.value}")
 
 
 class Character:
@@ -39,7 +47,18 @@ class Character:
 
     def get_stats(self):
         return [self.strength, self.intelligence]  # Extend this list if there are more stats
+    def __init__(self, name):
+        self.name = name
+        self.strength = Statistic("Strength", 50)  # Example stat
 
+    def reward(self):
+        # increase the chosen stat value
+        print(f"{self.name} has been rewarded.")
+        self.strength.modify(10)
+
+    def find_diamond(self):
+        print(f"{self.name} has found a diamond!")
+        self.strength.modify(10)
 
 class Event:
     def __init__(self, data: dict):
@@ -83,6 +102,7 @@ class Event:
         # increase the chosen stat value
         print(f"{character.name} has been rewarded.")
         character.strength.modify(10)
+    
 
 
 class Location:
@@ -141,7 +161,7 @@ def load_events_from_json(file_path: str) -> List[Event]:
 
 def start_game():
     parser = UserInputParser()
-    characters_names = ["Fireboy", "Watergirl", "elecroman", "dragonBaby"]
+    characters_names = ["Fireboy", "Watergirl", "aquaman", "lavawomen"]
 
 
     characters = [Character(name) for name in characters_names]

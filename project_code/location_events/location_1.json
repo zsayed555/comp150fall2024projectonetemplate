@@ -58,7 +58,7 @@
   {
     "primary_attribute": "Intelligence",
     "secondary_attribute": "Teamwork",
-    "prompt_text": "Before you lies a massive elemental puzzle that requires both fire and water to solve. How will you approach it?",
+    "prompt_text": "Before you lies a massive castle that requires both fire and water to solve. How will you approach it?",
     "pass": {
       "message": "Working together, you aligned the elements perfectly. The puzzle clicks open, and the way ahead is clear!"
     },
