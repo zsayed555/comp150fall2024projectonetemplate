@@ -38,8 +38,8 @@ class Statistic:
 class Character:
     def __init__(self, name: str = "Bob"):
         self.name = name
-        self.strength = Statistic("Strength", description="Strength is a measure of physical power.")
-        self.intelligence = Statistic("Intelligence", description="Intelligence is a measure of cognitive ability.")
+        self.strength = Statistic("Strength", 50, description="Strength is a measure of physical power.")
+        self.intelligence = Statistic("Intelligence", 50, description="Intelligence is a measure of cognitive ability.")
         # Add more stats as needed
 
     def __str__(self):
@@ -47,9 +47,6 @@ class Character:
 
     def get_stats(self):
         return [self.strength, self.intelligence]  # Extend this list if there are more stats
-    def __init__(self, name):
-        self.name = name
-        self.strength = Statistic("Strength", 50)  # Example stat
 
     def reward(self):
         # increase the chosen stat value
@@ -59,6 +56,7 @@ class Character:
     def find_diamond(self):
         print(f"{self.name} has found a diamond!")
         self.strength.modify(10)
+
 
 class Event:
     def __init__(self, data: dict):
@@ -102,8 +100,20 @@ class Event:
         # increase the chosen stat value
         print(f"{character.name} has been rewarded.")
         character.strength.modify(10)
-    
 
+class DiamondEvent(Event):
+    def __init__(self, data: dict):
+        super().__init__(data)
+
+    def execute(self, party: List[Character], parser):
+        print(self.prompt_text)
+        character = parser.select_party_member(party)
+        print(f"{character.name} has collected a diamond!")
+        self.reward(character)
+
+    def reward(self, character):
+        print(f"{character.name} has gained strength from collecting a diamond!")
+        character.strength.modify(20)
 
 class Location:
     def __init__(self, events: List[Event]):
@@ -168,12 +178,18 @@ def start_game():
 
     # Load events from the JSON file
     events = load_events_from_json('project_code/location_events/location_1.json')
-
-    locations = [Location(events)]
+    diamond_event_data = {'primary_attribute': 'Strength',
+        'secondary_attribute': 'Intelligence',
+        'prompt_text': "You've found a diamond!",
+        'pass': {'message': "You successfully collect the diamond."},
+        'fail': {'message': "You couldn't grab the diamond."},
+        'partial_pass': {'message': "You hesitated but managed to collect the diamond."}}
+    diamond_event = DiamondEvent(diamond_event_data)
+    locations = [Location(events + [diamond_event])]
     game = Game(parser, characters, locations)
     game.start()
 
-
 if __name__ == '__main__':
     start_game()
+
 
