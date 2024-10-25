@@ -121,6 +121,18 @@ class Location:
 
     def get_event(self) -> Event:
         return random.choice(self.events)
+        class Location:
+    def __init__(self, name: str, description: str):
+        self.name = name
+        self.description = description
+
+    def display_info(self):
+        print(f"Location: {self.name}")
+        print(f"Description: {self.description}")
+
+# Create the castle location
+diamond_castle = Location(
+    name="Diamond Castle"
 
 
 class Game:
