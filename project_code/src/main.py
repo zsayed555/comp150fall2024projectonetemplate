@@ -179,6 +179,14 @@ def load_events_from_json(file_path: str) -> List[Event]:
     with open(file_path, 'r') as file:
         data = json.load(file)
     return [Event(event_data) for event_data in data]
+    class Character:
+    def __init__(self, name: str):
+        self.name = name
+        self.diamonds_collected = 0
+
+    def collect_diamond(self):
+        self.diamonds_collected += 1
+        print(f"{self.name} collected a diamond! Total diamonds: {self.diamonds_collected}")
 
 
 def start_game():
