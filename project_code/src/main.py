@@ -25,15 +25,7 @@ class Statistic:
 
     def modify(self, amount: int):
         self.value = max(self.min_value, min(self.max_value, self.value + amount))
-    
-    def __init__(self, name, value):
-        self.name = name
-        self.value = value
-
-    def modify(self, amount):
-        self.value += amount
         print(f"{self.name} has increased by {amount}. New value: {self.value}")
-
 
 class Character:
     def __init__(self, name: str = "Bob"):
@@ -121,18 +113,15 @@ class Location:
 
     def get_event(self) -> Event:
         return random.choice(self.events)
-        class Location:
-    def __init__(self, name: str, description: str):
-        self.name = name
-        self.description = description
 
     def display_info(self):
         print(f"Location: {self.name}")
         print(f"Description: {self.description}")
 
 # Create the castle location
-diamond_castle = Location(
-    name="Diamond Castle"
+diamond_castle = Location([])
+diamond_castle.name = "Diamond Castle" 
+diamond_castle.description = "A magical place where diamonds are found."
 
 
 class Game:
@@ -180,9 +169,9 @@ def load_events_from_json(file_path: str) -> List[Event]:
         data = json.load(file)
     return [Event(event_data) for event_data in data]
     class Character:
-    def __init__(self, name: str):
-        self.name = name
-        self.diamonds_collected = 0
+        def __init__(self, name: str):
+            self.name = name
+            self.diamonds_collected = 0
 
     def collect_diamond(self):
         self.diamonds_collected += 1
@@ -211,5 +200,3 @@ def start_game():
 
 if __name__ == '__main__':
     start_game()
-
-
