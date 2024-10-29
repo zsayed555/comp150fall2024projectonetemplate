@@ -127,21 +127,33 @@ diamond_castle.description = "A magical place where diamonds are found."
 class Game:
     def __init__(self, parser, characters: List[Character], locations: List[Location]):
         self.parser = parser
-        self.party = characters
+        self.party: List[Character] = characters
         self.locations = locations
         self.continue_playing = True
+        self.game_state = ""
 
     def start(self):
+        if self.check_game_over():
+            self.continue_playing = False
         while self.continue_playing:
             location = random.choice(self.locations)
             event = location.get_event()
             event.execute(self.party, self.parser)
             if self.check_game_over():
                 self.continue_playing = False
-        print("Game Over.")
+
+
+        print(self.game_state)
 
     def check_game_over(self):
-        return len(self.party) == 0
+        if any(stat.value > 40 for character in self.party for stat in character.get_stats()):
+            self.game_state = "You Win!"
+            return True
+        if len(self.party) == 0:
+            self.game_state = "You Lose!"
+            return True
+
+        return False
 
 
 class UserInputParser:
@@ -168,23 +180,34 @@ def load_events_from_json(file_path: str) -> List[Event]:
     with open(file_path, 'r') as file:
         data = json.load(file)
     return [Event(event_data) for event_data in data]
-    class Character:
-        def __init__(self, name: str):
-            self.name = name
-            self.diamonds_collected = 0
-
-    def collect_diamond(self):
-        self.diamonds_collected += 1
-        print(f"{self.name} collected a diamond! Total diamonds: {self.diamonds_collected}")
+# class Character:
+#     def __init__(self, name: str):
+#         self.name = name
+#         self.diamonds_collected = 0
+#
+#     def collect_diamond(self):
+#         self.diamonds_collected += 1
+#         print(f"{self.name} collected a diamond! Total diamonds: {self.diamonds_collected}")
 
 
 def start_game():
+
+
+    """
+    Tasks for the final project
+        1. Retry if the input is out of range or the wrong type
+        2. Add unit tests that show the game can be won or lost\
+        3. Pictures of events in the ascII style
+
+    """
     parser = UserInputParser()
     characters_names = ["Fireboy", "Watergirl", "aquaman", "lavawomen"]
 
 
     characters = [Character(name) for name in characters_names]
-
+    # uberwoman = Character("Uber")
+    # uberwoman.strength.modify(50)  # Increase strength by 50
+    # characters = [uberwoman]
     # Load events from the JSON file
     events = load_events_from_json('project_code/location_events/location_1.json')
     diamond_event_data = {'primary_attribute': 'Strength',
