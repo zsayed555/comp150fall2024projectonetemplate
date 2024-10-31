@@ -2,7 +2,7 @@
   {
     "primary_attribute": "Agility",
     "secondary_attribute": "Teamwork",
-    "prompt_text": "A narrow bridge of molten lava stretches before you. How will you cross?",
+    "prompt_text": "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n        NARROW LAVA BRIDGE       \n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n     |   |     |   |      |    |    \n     |   |_____|   |______|____|    \n~~~~~~  ~~~~~~~~~  ~~~~~~~~~~ ~~~~~~\n       Molten Lava Flow Below     \n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n\"Will you attempt to cross the bridge?\"",
     "pass": {
       "message": "With perfect timing and coordination, you crossed the bridge safely. You can move on!"
     },
@@ -16,7 +16,7 @@
   {
     "primary_attribute": "Intelligence",
     "secondary_attribute": "Creativity",
-    "prompt_text": "You enter a chamber filled with glimmering ice crystals that reflect light in every direction. What will you do?",
+    "prompt_text": "*****************************************\n       CHAMBER OF GLIMMERING ICE\n*****************************************\n        *  *     *       *    *\n     *        *      *    *       *\n      ~~~~~ Ice Crystals Reflect Light ~~~~~\n    *      *       *      *     *   *\n         *       *       *    *\n\n\"The chamber glimmers with icy light. What will you do?\"",
     "pass": {
       "message": "Using your wits, you created a path through the ice, revealing a hidden exit. You may proceed!"
     },
@@ -30,7 +30,7 @@
   {
     "primary_attribute": "Intelligence",
     "secondary_attribute": "Courage",
-    "prompt_text": "A majestic waterfall thunders before you, said to grant wisdom to those who dare approach. What will you do?",
+    "prompt_text": "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n      THE MAJESTIC WATERFALL    \n^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n         ~~~~~~       ~~~~~~\n        ~  Wisdom Awaits  ~\n       ~      ~~~~        ~\n          ~~~~~      ~~~~~~\n        ~~~~~~~~~ ~~~~~~~~~~\n           Waters of Insight\n\n\"The waterfall thunders before you. Do you approach?\"",
     "pass": {
       "message": "You approached bravely and listened to the whispers of the water. You gained valuable insight for your journey."
     },
@@ -44,7 +44,7 @@
   {
     "primary_attribute": "Strength",
     "secondary_attribute": "Intelligence",
-    "prompt_text": "A stone guardian blocks your path, demanding a test of strength and smarts. What will you do?",
+    "prompt_text": "###############################\n          STONE GUARDIAN     \n###############################\n       _____       _____\n      /     \\     /     \\\n     | (o) (o) | |       |\n     |    #    | |   O   |\n       \\_____/     \\_____/\n\n\"The guardian stands tall, testing your strength and smarts. How will you proceed?\"",
     "pass": {
       "message": "You outsmarted and outmuscled the guardian. You may pass without further hindrance!"
     },
@@ -58,7 +58,7 @@
   {
     "primary_attribute": "Intelligence",
     "secondary_attribute": "Teamwork",
-    "prompt_text": "Before you lies a massive castle that requires both fire and water to solve. How will you approach it?",
+    "prompt_text": "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n         MYSTIC CASTLE      \n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n    _______         _______\n   /      \\       /       \\\n  |  FIRE  |     |  WATER  |\n   \\_______/       \\_______/\n\n\"Ahead lies the massive castle puzzle. Fire and water are needed. How will you solve it?\"",
     "pass": {
       "message": "Working together, you aligned the elements perfectly. The puzzle clicks open, and the way ahead is clear!"
     },
