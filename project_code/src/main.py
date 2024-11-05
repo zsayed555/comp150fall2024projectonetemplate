@@ -222,13 +222,6 @@ class SafeUserInputParser(UserInputParser):
 
 def start_game():
 
-
-    """
-    Tasks for the final project
-        1. Retry if the input is out of range or the wrong type
-        2. Add unit tests that show the game can be won or lost
-
-    """
     parser = SafeUserInputParser()
     characters_names = ["Fireboy", "Watergirl", "aquaman", "lavawomen"]
 
