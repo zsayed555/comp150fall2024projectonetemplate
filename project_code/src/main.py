@@ -3,7 +3,6 @@ import sys
 import random
 from typing import List, Optional 
 from enum import Enum
- 
 
 class EventStatus(Enum):
     UNKNOWN = "unknown"
@@ -178,7 +177,7 @@ class UserInputParser:
 
 def load_events_from_json(file_path: str) -> List[Event]:
     with open(file_path, 'r') as file:
-        data = json.load(file)
+        data =json.load(file)
     return [Event(event_data) for event_data in data]
 # class Character:
 #     def __init__(self, name: str):
@@ -196,7 +195,7 @@ def start_game():
     """
     Tasks for the final project
         1. Retry if the input is out of range or the wrong type
-        2. Add unit tests that show the game can be won or lost\
+        2. Add unit tests that show the game can be won or lost
 
     """
     parser = UserInputParser()
@@ -222,3 +221,4 @@ def start_game():
 
 if __name__ == '__main__':
     start_game()
+
