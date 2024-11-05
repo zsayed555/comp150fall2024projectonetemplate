@@ -222,3 +222,27 @@ def start_game():
 if __name__ == '__main__':
     start_game()
 
+# import unittest
+
+# class TestGame(unittest.TestCase):
+#     def setUp(self):
+#         # This method will run before each test
+#         self.parser = UserInputParser()
+#         self.characters = [Character("TestCharacter")]
+#         self.locations = [Location([])]  # Empty events for simplicity
+#         self.game = Game(self.parser, self.characters, self.locations)
+
+#     def test_game_win_condition(self):
+#         # Directly modify the character's strength to exceed the win threshold
+#         self.characters[0].strength.modify(50)
+#         self.assertTrue(self.game.check_game_over())
+#         self.assertEqual(self.game.game_state, "You Win!")
+
+#     def test_game_loss_condition(self):
+#         # Set up the game with no characters to trigger a loss
+#         self.game.party = []
+#         self.assertTrue(self.game.check_game_over())
+#         self.assertEqual(self.game.game_state, "You Lose!")
+
+# if __name__ == '__main__':
+#     unittest.main()
