@@ -188,6 +188,37 @@ def load_events_from_json(file_path: str) -> List[Event]:
 #         self.diamonds_collected += 1
 #         print(f"{self.name} collected a diamond! Total diamonds: {self.diamonds_collected}")
 
+# Wrapper class to add retry functionality
+class SafeUserInputParser(UserInputParser):
+    def select_party_member(self, party: List[Character]) -> Character:
+        while True:
+            try:
+                print("Choose a party member:")
+                for idx, member in enumerate(party):
+                    print(f"{idx + 1}. {member.name}")
+                choice = int(self.parse("Enter the number of the chosen party member: ")) - 1
+                if 0 <= choice < len(party):
+                    return party[choice]
+                else:
+                    print("Invalid choice. Please try again.")
+            except ValueError:
+                print("Invalid input. Please enter a number.")
+    
+    def select_stat(self, character: Character) -> Statistic:
+        while True:
+            try:
+                print(f"Choose a stat for {character.name}:")
+                stats = character.get_stats()
+                for idx, stat in enumerate(stats):
+                    print(f"{idx + 1}. {stat.name} ({stat.value})")
+                choice = int(self.parse("Enter the number of the stat to use: ")) - 1
+                if 0 <= choice < len(stats):
+                    return stats[choice]
+                else:
+                    print("Invalid choice. Please try again.")
+            except ValueError:
+                print("Invalid input. Please enter a number.")
+
 
 def start_game():
 
@@ -198,7 +229,7 @@ def start_game():
         2. Add unit tests that show the game can be won or lost
 
     """
-    parser = UserInputParser()
+    parser = SafeUserInputParser()
     characters_names = ["Fireboy", "Watergirl", "aquaman", "lavawomen"]
 
 
